@@ -13,7 +13,7 @@
 class BookTableDrawer : public TableDrawer<Book> {
 public:
     BookTableDrawer();
-    std::vector<BookCellDrawer> cellDrawers;
+    BookTableDrawer(std::vector<Book> books);
 
     BookAuthorCellDrawer *authorCellDrawer;
     BookTitleCellDrawer *titleCellDrawer;

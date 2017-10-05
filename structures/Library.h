@@ -10,10 +10,6 @@ public:
     std::string name;
     std::string owner;
     std::vector<Book> books;
-    void render();
-
-protected:
-    void renderBooks();
 } Library;
 
 

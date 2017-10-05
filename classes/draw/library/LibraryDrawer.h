@@ -8,9 +8,12 @@
 class LibraryDrawer : public Drawable {
 public:
     Library *library;
+    BookTableDrawer *booksDrawer;
+
     LibraryDrawer();
-    BookTableDrawer *tableDrawer;
+    LibraryDrawer(Library *library);
     void render();
+    void render(Library *library);
 };
 
 

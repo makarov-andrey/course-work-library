@@ -1,9 +1,11 @@
 #ifndef COURSE_WORK_DRAWABLE_H
 #define COURSE_WORK_DRAWABLE_H
 
-class Drawable {
+#include <basetyps.h>
+
+interface Drawable {
 public:
-    virtual void render();
+    virtual void render() = 0;
 };
 
 

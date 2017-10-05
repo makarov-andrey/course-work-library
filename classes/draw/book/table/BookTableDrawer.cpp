@@ -1,6 +1,4 @@
 #include "BookTableDrawer.h"
-#include "../cell/BookAuthorCellDrawer.h"
-#include "../cell/BookTitleCellDrawer.h"
 
 BookTableDrawer::BookTableDrawer() {
     authorCellDrawer = new BookAuthorCellDrawer;
@@ -17,4 +15,9 @@ BookTableDrawer::BookTableDrawer() {
 
     storePlaceCellDrawer = new BookStorePlaceCellDrawer;
     cellDrawers.push_back(*storePlaceCellDrawer);
+}
+
+BookTableDrawer::BookTableDrawer(std::vector<Book> books) {
+    BookTableDrawer();
+    body = books;
 }

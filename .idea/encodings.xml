@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/classes/draw/library/LibraryDrawer.cpp" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/functions/askWhile.cpp" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/functions/checkFileName.cpp" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/functions/createLibrary.cpp" charset="windows-1251" />
@@ -8,9 +9,7 @@
     <file url="file://$PROJECT_DIR$/functions/isFileExists.cpp" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/functions/loadLibraryFromFile.cpp" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/functions/seedLibrary.cpp" charset="windows-1251" />
-    <file url="file://$PROJECT_DIR$/headers/messages.h" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/main.cpp" charset="windows-1251" />
-    <file url="file://$PROJECT_DIR$/messages.cpp" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/structures/Book.h" charset="windows-1251" />
   </component>
 </project>
