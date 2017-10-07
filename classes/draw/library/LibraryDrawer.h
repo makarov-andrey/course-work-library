@@ -6,14 +6,12 @@
 #include "../../../structures/Library.h"
 
 class LibraryDrawer : public Drawable {
-public:
+protected:
     Library *library;
-    BookTableDrawer *booksDrawer;
 
-    LibraryDrawer();
-    LibraryDrawer(Library *library);
+public:
+    void setLibrary (Library *library);
     void render();
-    void render(Library *library);
 };
 
 

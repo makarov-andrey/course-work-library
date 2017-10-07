@@ -14,7 +14,7 @@ Library *loadLibraryFromFile(std::string fileName) {
 
     std::string line;
     while (std::getline(file, line)) {
-        library->books.push_back(*createBookFromString(line));
+        library->books->push_back(createBookFromString(line));
     }
 
     file.close();

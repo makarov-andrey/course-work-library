@@ -8,5 +8,5 @@ std::string formatAlignmentCenter (std::string input, int size) {
     }
     int leftIndent = indent / 2;
     std::string output = formatAlignmentRight(input, leftIndent + input.size());
-    return formatAlignmentRight(output, size);
+    return formatAlignmentLeft(output, size);
 }

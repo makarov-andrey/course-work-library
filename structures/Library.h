@@ -5,11 +5,12 @@
 #include <vector>
 #include "Book.h"
 
-typedef struct {
+typedef struct Library {
 public:
+    Library();
     std::string name;
     std::string owner;
-    std::vector<Book> books;
+    std::vector<Book*> *books;
 } Library;
 
 

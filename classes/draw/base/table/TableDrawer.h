@@ -13,21 +13,19 @@ template<typename RowType>
 class TableDrawer : public Drawable {
 public:
     typedef CellDrawer<RowType> TypedCellDrawer;
-    typedef typename std::vector<TypedCellDrawer>::iterator TypedCellDrawerIterator;
-    typedef typename std::vector<RowType>::iterator RowTypeIterator;
 
     int headingColor;
     int borderColor;
     int cellColor;
-    std::vector<TypedCellDrawer> cellDrawers;
-    std::vector<RowType> body;
 
     TableDrawer();
     void recountCellSizes();
     void render();
-    void render(std::vector<RowType> rows);
+    void setBody(std::vector<RowType*> *body);
 
 protected:
+    std::vector<TypedCellDrawer*> *cellDrawers;
+    std::vector<RowType*> *body;
     void renderHeading();
     void renderRow(RowType *row);
     void renderHorizontalBorderLine();
@@ -38,7 +36,8 @@ protected:
 template<typename RowType>
 inline
 TableDrawer<RowType>::TableDrawer() {
-    headingColor = COLOR_GREEN;
+    cellDrawers = new std::vector<TypedCellDrawer*>;
+    headingColor = COLOR_LIGHT_GREEN;
     borderColor = COLOR_WHITE;
     cellColor = COLOR_WHITE;
 }
@@ -64,9 +63,9 @@ inline
 void TableDrawer<RowType>::renderHeading() {
     renderHorizontalBorderLine();
     renderVerticalBorderSymbol();
-    for (TypedCellDrawerIterator cell = cellDrawers.begin() ; cell != cellDrawers.end(); ++cell) {
+    for (auto &cellDrawer: *cellDrawers) {
         setColor(headingColor);
-        cell->renderHeading();
+        cellDrawer->renderHeading();
         setColor();
         renderVerticalBorderSymbol();
     }
@@ -78,10 +77,10 @@ template<typename RowType>
 inline
 void TableDrawer<RowType>::renderRow(RowType *row) {
     renderVerticalBorderSymbol();
-    for (TypedCellDrawerIterator cell = cellDrawers.begin() ; cell != cellDrawers.end(); ++cell) {
+    for (auto &cellDrawer: *cellDrawers) {
         setColor(cellColor);
-        cell->row = row;
-        cell->render();
+        cellDrawer->row = row;
+        cellDrawer->render();
         setColor();
         renderVerticalBorderSymbol();
     }
@@ -93,8 +92,8 @@ template<typename RowType>
 inline
 int TableDrawer<RowType>::getTableWidth() {
     int size = 1;
-    for (TypedCellDrawerIterator cell = cellDrawers.begin() ; cell != cellDrawers.end(); ++cell) {
-        size += cell->size;
+    for (auto &cellDrawer: *cellDrawers) {
+        size += cellDrawer->size;
         size++;
     }
     return size;
@@ -104,31 +103,29 @@ template<typename RowType>
 inline
 void TableDrawer<RowType>::render() {
     renderHeading();
-    for (RowTypeIterator row = body.begin(); row != body.end(); ++row) {
-        renderRow(row.base());
+    for (auto &row: *body) {
+        renderRow(row);
     }
-}
-
-template<typename RowType>
-inline
-void TableDrawer<RowType>::render(std::vector<RowType> rows) {
-    body = rows;
-    recountCellSizes();
-    render();
 }
 
 template<typename RowType>
 inline
 void TableDrawer<RowType>::recountCellSizes() {
-    for (TypedCellDrawerIterator cell = cellDrawers.begin() ; cell != cellDrawers.end(); ++cell) {
-        cell->size = cell->heading.size();
+    for (auto &cellDrawer: *cellDrawers) {
+        cellDrawer->size = cellDrawer->heading.size();
     }
-    for (RowTypeIterator row = body.begin() ; row != body.end(); ++row) {
-        for (TypedCellDrawerIterator cell = cellDrawers.begin() ; cell != cellDrawers.end(); ++cell) {
-            cell->row = row.base();
-            cell->size = std::max(cell->size, (int) cell->getValue().size());
+    for (auto &row: *body) {
+        for (auto &cellDrawer: *cellDrawers) {
+            cellDrawer->row = row;
+            cellDrawer->size = std::max(cellDrawer->size, (int) cellDrawer->getValue().size());
         }
     }
+}
+
+template<typename RowType>
+inline
+void TableDrawer<RowType>::setBody(std::vector<RowType *> *body) {
+    this->body = body;
 }
 
 #endif //COURSE_WORK_TABLE_DRAWER_H

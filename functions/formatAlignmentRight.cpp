@@ -6,5 +6,5 @@ std::string formatAlignmentRight (std::string input, int size) {
         input.resize(size);
         return input;
     }
-    return input + std::string(whiteSpaces, ' ');
+    return std::string(whiteSpaces, ' ') + input;
 }

@@ -13,13 +13,7 @@
 class BookTableDrawer : public TableDrawer<Book> {
 public:
     BookTableDrawer();
-    BookTableDrawer(std::vector<Book> books);
-
-    BookAuthorCellDrawer *authorCellDrawer;
-    BookTitleCellDrawer *titleCellDrawer;
-    BookPublisherCellDrawer *publisherCellDrawer;
-    BookYearCellDrawer *yearCellDrawer;
-    BookStorePlaceCellDrawer *storePlaceCellDrawer;
+    ~BookTableDrawer();
 };
 
 #endif //COURSE_WORK_BOOKTABLEDRAWER_H
