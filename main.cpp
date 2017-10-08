@@ -1,15 +1,32 @@
 #include <iostream>
-#include <conio.h>
 #include "functions/functions.h"
-#include "structures/Library.h"
 #include "classes/draw/library/LibraryDrawer.h"
+#include "classes/Router.h"
 
 int main() {
-    setlocale(LC_ALL, "Russian");
+    config();
+
     Library *library = seedLibrary();
-    LibraryDrawer *drawer = new LibraryDrawer();
-    drawer->setLibrary(library);
-    cleanConsole();
-    drawer->render();
+
+    auto *libraryDrawer = new LibraryDrawer();
+    libraryDrawer->setLibrary(library);
+
+    auto *router = new Router;
+
+    auto *commandMenuDrawer = new CommandMenuDrawer;
+    commandMenuDrawer->commands = router->getCommands();
+
+    while (true) {
+        cleanConsole();
+        libraryDrawer->render();
+        commandMenuDrawer->render();
+
+        setColor(COLOR_LIGHT_MAGENTA);
+        std::cout << "¬ведите команду: ";
+        setColor();
+        std::string command;
+        std::cin >> command;
+        router->route(command);
+    }
     return EXIT_SUCCESS;
 }

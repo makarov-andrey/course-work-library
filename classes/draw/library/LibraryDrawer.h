@@ -9,7 +9,14 @@ class LibraryDrawer : public Drawable {
 protected:
     Library *library;
 
+    void renderName();
+    void renderOwner();
+    void renderBooks();
+
 public:
+    int headingColor;
+
+    LibraryDrawer();
     void setLibrary (Library *library);
     void render();
 };

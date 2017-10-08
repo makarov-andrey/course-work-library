@@ -2,6 +2,7 @@
 #define COURSE_WORK_DRAWABLE_H
 
 #include <basetyps.h>
+#include "command-menu/CommandMenuDrawer.h"
 
 interface Drawable {
 public:

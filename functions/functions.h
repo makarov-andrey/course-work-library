@@ -20,6 +20,8 @@ void setColor(int charColor = DEFAULT_CHAR_COLOR, int backgroundColor = DEFAULT_
 std::string formatAlignmentLeft (std::string input, int size);
 std::string formatAlignmentRight (std::string input, int size);
 std::string formatAlignmentCenter (std::string input, int size);
+void config ();
+std::string shieldRegexSymbols(std::string input);
 
 
 #endif //COURSE_WORK_FUNCTIONS_H
