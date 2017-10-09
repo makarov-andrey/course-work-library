@@ -41,3 +41,11 @@ void CommandMenuDrawer::renderArgument(CommandArgument *argument) {
     setColor();
     std::cout << std::endl;
 }
+
+void CommandMenuDrawer::setCommands(std::vector<Command *> *commands) {
+    this->commands = commands;
+}
+
+std::vector<Command *> *CommandMenuDrawer::getCommands() {
+    return commands;
+}

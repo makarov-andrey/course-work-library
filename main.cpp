@@ -15,19 +15,14 @@ int main() {
     auto *router = new Router;
 
     auto *commandMenuDrawer = new CommandMenuDrawer;
-    commandMenuDrawer->commands = router->getCommands();
+    commandMenuDrawer->setCommands(router->getCommands());
 
     while (true) {
         cleanConsole();
         libraryDrawer->render();
         commandMenuDrawer->render();
-
-        setColor(COLOR_LIGHT_MAGENTA);
-        std::cout << "¬ведите команду: ";
-        setColor();
-        std::string command;
-        std::getline(std::cin, command);
-        router->route(command);
+        router->route(askCommand());
     }
+
     return EXIT_SUCCESS;
 }

@@ -6,16 +6,20 @@
 #include "../../execute/base/Command.h"
 
 class CommandMenuDrawer /*: public Drawable*/ {
+protected:
+    std::vector<Command*> *commands;
+
 public:
     int commandColor;
     int argumentColor;
     int descriptionColor;
-    std::vector<Command*> *commands;
 
     CommandMenuDrawer();
     void render();
     void renderCommand(Command *command);
     void renderArgument(CommandArgument *argument);
+    void setCommands(std::vector<Command*> *commands);
+    std::vector<Command*> *getCommands();
 };
 
 
