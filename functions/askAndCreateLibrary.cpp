@@ -1,7 +1,7 @@
 #include <iostream>
 #include "../structures/Library.h"
 
-Library *createLibrary() {
+Library *askAndCreateLibrary() {
     Library *library = new Library;
     std::cout << "Введите название библиотеки ";
     std::getline(std::cin, library->name);

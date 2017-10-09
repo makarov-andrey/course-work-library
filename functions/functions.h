@@ -2,7 +2,7 @@
 #define COURSE_WORK_FUNCTIONS_H
 
 #include <string>
-#include "../headers/colors.h"
+#include "../colors.h"
 #include "../structures/Book.h"
 #include "../structures/Library.h"
 
@@ -11,7 +11,7 @@ std::string askUntil(bool (*validator)(std::string), std::string errorMessage = 
 bool isFileExists(std::string fileName);
 bool checkFileName(std::string fileName);
 Library *loadLibraryFromFile(std::string fileName);
-Library *createLibrary();
+Library *askAndCreateLibrary();
 
 bool checkCommand (std::string command);
 Book *createBookFromString (std::string line);

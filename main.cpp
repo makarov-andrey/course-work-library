@@ -2,11 +2,12 @@
 #include "functions/functions.h"
 #include "classes/draw/library/LibraryDrawer.h"
 #include "classes/Router.h"
+#include "globals.h"
 
 int main() {
     config();
 
-    Library *library = seedLibrary();
+    library = seedLibrary();
 
     auto *libraryDrawer = new LibraryDrawer();
     libraryDrawer->setLibrary(library);
@@ -25,7 +26,7 @@ int main() {
         std::cout << "¬ведите команду: ";
         setColor();
         std::string command;
-        std::cin >> command;
+        std::getline(std::cin, command);
         router->route(command);
     }
     return EXIT_SUCCESS;

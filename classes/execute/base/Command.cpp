@@ -39,7 +39,8 @@ void Command::iteratePatternArguments(std::function<void (CommandArgument*, std:
 
 bool Command::match(std::string input) {
     std::smatch matches;
-    if (!std::regex_match(input, matches, std::regex(getRegexString()))) {
+    std::string regexString = getRegexString();
+    if (!std::regex_match(input, matches, std::regex(regexString))) {
         return false;
     }
 

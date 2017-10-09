@@ -7,7 +7,7 @@
 class CommandArgument {
 public:
     std::string name;
-    std::string regexString = ".*";
+    std::string regexString = ".+";
     std::string value;
     std::string description;
 };

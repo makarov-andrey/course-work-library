@@ -1,6 +1,6 @@
 #include <iostream>
 #include "CommandMenuDrawer.h"
-#include "../../../headers/colors.h"
+#include "../../../colors.h"
 #include "../../../functions/functions.h"
 
 CommandMenuDrawer::CommandMenuDrawer() {

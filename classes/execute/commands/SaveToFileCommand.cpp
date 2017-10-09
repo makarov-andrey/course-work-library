@@ -1,13 +1,14 @@
 #include "SaveToFileCommand.h"
-#include "../command_arguments/FileCommandArgument.h"
+#include "../../LibraryFileMutator.h"
+#include "../../../globals.h"
 
 SaveToFileCommand::SaveToFileCommand() {
-    auto fileArgument = new FileCommandArgument;
+    fileArgument = new FileCommandArgument;
     setArgument(fileArgument);
     pattern = "save to <" + fileArgument->name + ">";
     description = "Сохранить библиотеку в файл";
 }
 
 void SaveToFileCommand::execute() {
-
+    LibraryFileMutator::save(library, fileArgument->value);
 }
