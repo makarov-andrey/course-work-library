@@ -23,6 +23,7 @@ std::string formatAlignmentCenter (std::string input, int size);
 void config();
 std::string shieldRegexSymbols(std::string input);
 std::string askCommand();
+Book *askAndCreateBook();
 
 
 #endif //COURSE_WORK_FUNCTIONS_H

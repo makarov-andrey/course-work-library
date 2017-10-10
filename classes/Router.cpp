@@ -1,11 +1,11 @@
 #include "Router.h"
-#include "execute/commands/AddBookCommand.h"
+#include "execute/commands/CreateBookCommand.h"
 #include "execute/commands/SaveToFileCommand.h"
 
 Router::Router() {
     commands = new std::vector<Command*>;
     commands->push_back(new SaveToFileCommand);
-    commands->push_back(new AddBookCommand);
+    commands->push_back(new CreateBookCommand);
 }
 
 std::vector<Command *> *Router::getCommands() {

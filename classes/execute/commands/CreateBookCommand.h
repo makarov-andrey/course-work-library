@@ -4,9 +4,9 @@
 
 #include "../base/Command.h"
 
-class AddBookCommand : public Command {
+class CreateBookCommand : public Command {
 public:
-    AddBookCommand();
+    CreateBookCommand();
     void execute();
 };
 
