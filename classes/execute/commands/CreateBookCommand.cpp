@@ -9,5 +9,5 @@ CreateBookCommand::CreateBookCommand() {
 
 void CreateBookCommand::execute() {
     cleanConsole();
-    library->books->push_back(askAndCreateBook());
+    library->books->push_back(createAndSeedBook());
 }

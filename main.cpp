@@ -7,7 +7,7 @@
 int main() {
     config();
 
-    library = seedLibrary();
+    library = askLibrary();
 
     auto *libraryDrawer = new LibraryDrawer();
     libraryDrawer->setLibrary(library);

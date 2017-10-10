@@ -6,13 +6,14 @@
 #include "../structures/Book.h"
 #include "../structures/Library.h"
 
-Library *seedLibrary();
+Library *askLibrary();
 std::string askUntil(bool (*validator)(std::string), std::string errorMessage = "");
 bool isFileExists(std::string fileName);
 bool checkFileName(std::string fileName);
 Library *loadLibraryFromFile(std::string fileName);
-Library *askAndCreateLibrary();
-
+Library *createAndSeedLibrary();
+void seedLibrary (Library *library);
+void seedBook (Book *book);
 bool checkCommand (std::string command);
 Book *createBookFromString (std::string line);
 void cleanConsole(char fill = ' ');
@@ -23,7 +24,7 @@ std::string formatAlignmentCenter (std::string input, int size);
 void config();
 std::string shieldRegexSymbols(std::string input);
 std::string askCommand();
-Book *askAndCreateBook();
+Book *createAndSeedBook();
 
 
 #endif //COURSE_WORK_FUNCTIONS_H

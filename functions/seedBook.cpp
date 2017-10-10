@@ -1,8 +1,7 @@
 #include <iostream>
 #include "../structures/Book.h"
 
-Book *askAndCreateBook() {
-    auto *book = new Book;
+void seedBook (Book *book) {
     std::cout << "Автор: ";
     std::getline(std::cin, book->author);
     std::cout << "Название: ";
@@ -13,5 +12,4 @@ Book *askAndCreateBook() {
     std::getline(std::cin, book->year);
     std::cout << "Место хранения: ";
     std::getline(std::cin, book->storePlace);
-    return book;
 }
