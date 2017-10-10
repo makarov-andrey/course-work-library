@@ -1,21 +1,21 @@
-#include "UpdateBookCommand.h"
+#include "DeleteBookCommand.h"
 #include "../../../structures/Book.h"
 #include "../../../globals.h"
-#include "../../../functions/functions.h"
 
-UpdateBookCommand::UpdateBookCommand() {
+DeleteBookCommand::DeleteBookCommand() {
     bookIdArgument = new BookIdCommandArgument;
     setArgument(bookIdArgument);
-    pattern = "update book <" + bookIdArgument->name + ">";
-    description = "Обновить книгу";
+    pattern = "delete book <" + bookIdArgument->name + ">";
+    description = "Удалить книгу";
 }
 
-void UpdateBookCommand::execute() {
+void DeleteBookCommand::execute() {
     int position = std::stoi(bookIdArgument->value) - 1;
     if (position > (library->books->size() - 1)) {
         //TODO error message
         return;
     }
     auto *book = library->books->at(position);
-    seedBook(book);
+    library->books->erase(library->books->begin() + position);
+    delete book;
 }
