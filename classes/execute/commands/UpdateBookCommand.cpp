@@ -4,18 +4,18 @@
 #include "../../../functions/functions.h"
 
 UpdateBookCommand::UpdateBookCommand() {
-    bookIdArgument = new BookIdCommandArgument;
-    setArgument(bookIdArgument);
-    pattern = "update book <" + bookIdArgument->name + ">";
+    bookArgument = new BookCommandArgument;
+    setArgument(bookArgument);
+    pattern = "update book <" + bookArgument->name + ">";
     description = "Обновить книгу";
 }
 
 void UpdateBookCommand::execute() {
-    int position = std::stoi(bookIdArgument->value) - 1;
-    if (position > (library->books->size() - 1)) {
+    auto *book = bookArgument->getBook();
+    if (!book) {
         //TODO error message
         return;
     }
-    auto *book = library->books->at(position);
+    cleanConsole();
     seedBook(book);
 }

@@ -3,10 +3,13 @@
 
 
 #include "../base/CommandArgument.h"
+#include "../../../structures/Book.h"
 
-class BookIdCommandArgument : public CommandArgument {
+class BookCommandArgument : public CommandArgument {
 public:
-    BookIdCommandArgument();
+    BookCommandArgument();
+    Book *getBook();
+    int getBookPosition();
 };
 
 

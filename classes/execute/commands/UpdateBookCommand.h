@@ -2,11 +2,11 @@
 #define COURSE_WORK_UPDATEBOOKCOMMAND_H
 
 #include "../base/Command.h"
-#include "../command_arguments/BookIdCommandArgument.h"
+#include "../command_arguments/BookCommandArgument.h"
 
 class UpdateBookCommand : public Command {
 protected:
-    BookIdCommandArgument *bookIdArgument;
+    BookCommandArgument *bookArgument;
 public:
     UpdateBookCommand();
     void execute();

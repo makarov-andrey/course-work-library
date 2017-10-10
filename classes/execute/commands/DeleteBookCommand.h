@@ -3,11 +3,11 @@
 
 
 #include "../base/Command.h"
-#include "../command_arguments/BookIdCommandArgument.h"
+#include "../command_arguments/BookCommandArgument.h"
 
 class DeleteBookCommand : public Command {
 protected:
-    BookIdCommandArgument *bookIdArgument;
+    BookCommandArgument *bookArgument;
 public:
     DeleteBookCommand();
     void execute();

@@ -3,19 +3,18 @@
 #include "../../../globals.h"
 
 DeleteBookCommand::DeleteBookCommand() {
-    bookIdArgument = new BookIdCommandArgument;
-    setArgument(bookIdArgument);
-    pattern = "delete book <" + bookIdArgument->name + ">";
+    bookArgument = new BookCommandArgument;
+    setArgument(bookArgument);
+    pattern = "delete book <" + bookArgument->name + ">";
     description = "Удалить книгу";
 }
 
 void DeleteBookCommand::execute() {
-    int position = std::stoi(bookIdArgument->value) - 1;
-    if (position > (library->books->size() - 1)) {
+    auto *book = bookArgument->getBook();
+    if (!book) {
         //TODO error message
         return;
     }
-    auto *book = library->books->at(position);
-    library->books->erase(library->books->begin() + position);
+    library->books->erase(library->books->begin() + bookArgument->getBookPosition());
     delete book;
 }
