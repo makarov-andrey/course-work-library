@@ -3,8 +3,8 @@
 
 
 #include "../../../../structures/Book.h"
-#include "../../base/cell/CellDrawer.h"
+#include "../../base/cell/IterateSizeCountedCellDrawer.h"
 
-typedef CellDrawer<Book> BookCellDrawer;
+typedef IterateSizeCountedCellDrawer<Book> BookCellDrawer;
 
 #endif //COURSE_WORK_BOOKCELLDRAWER_H

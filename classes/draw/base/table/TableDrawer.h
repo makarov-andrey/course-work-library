@@ -1,13 +1,12 @@
 #ifndef COURSE_WORK_TABLE_DRAWER_H
 #define COURSE_WORK_TABLE_DRAWER_H
 
+#include "../../Drawable.h"
 #include "../cell/CellDrawer.h"
 #include "../../../../structures/Book.h"
-#include "../../Drawable.h"
 #include "../../../../colors.h"
 #include "../../../../functions/functions.h"
-
-class iterator;
+#include "../cell/IndexCellDrawer.h"
 
 template<typename RowType>
 class TableDrawer : public Drawable {
@@ -20,6 +19,11 @@ public:
 
     TableDrawer() {
         cellDrawers = new std::vector<TypedCellDrawer *>;
+
+        auto *indexCellDrawer = new IndexCellDrawer<RowType>;
+        indexCellDrawer->tableDrawer = this;
+        cellDrawers->push_back(indexCellDrawer);
+
         headingColor = COLOR_LIGHT_GREEN;
         borderColor = DEFAULT_CHAR_COLOR;
         cellColor = DEFAULT_CHAR_COLOR;
@@ -27,13 +31,7 @@ public:
 
     void recountCellSizes() {
         for (auto &cellDrawer: *cellDrawers) {
-            cellDrawer->size = cellDrawer->heading.size();
-        }
-        for (auto &row: *body) {
-            for (auto &cellDrawer: *cellDrawers) {
-                cellDrawer->row = row;
-                cellDrawer->size = std::max(cellDrawer->size, (int) cellDrawer->getValue().size());
-            }
+            cellDrawer->recountSize(body);
         }
     }
 
@@ -46,6 +44,11 @@ public:
 
     void setBody(std::vector<RowType *> *body) {
         this->body = body;
+    }
+
+    int getIndexOfElement (RowType *row) {
+        typename std::vector<RowType*>::iterator rowIterator = std::find(body->begin(), body->end(), row);
+        return std::distance<>(body->begin(), rowIterator);
     }
 
 protected:
