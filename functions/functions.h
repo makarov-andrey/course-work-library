@@ -25,6 +25,7 @@ void config();
 std::string shieldRegexSymbols(std::string input);
 std::string askCommand();
 Book *createAndSeedBook();
+void seedFieldConsideringDefaultValue (std::string title, std::string &field);
 
 
 #endif //COURSE_WORK_FUNCTIONS_H

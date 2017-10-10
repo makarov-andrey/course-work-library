@@ -5,9 +5,6 @@
 #include "../base/CommandArgument.h"
 
 class FieldCommandArgument : public CommandArgument {
-protected:
-    std::string regexString;
-
 public:
     FieldCommandArgument();
 };

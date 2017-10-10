@@ -1,6 +1,5 @@
 #include <iostream>
 #include "functions.h"
-#include "../structures/Library.h"
 #include "../classes/LibraryFileMutator.h"
 
 Library *askLibrary() {

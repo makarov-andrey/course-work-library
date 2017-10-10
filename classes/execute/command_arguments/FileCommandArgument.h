@@ -5,9 +5,6 @@
 #include "../base/CommandArgument.h"
 
 class FileCommandArgument : public CommandArgument {
-protected:
-    std::string regexString;
-
 public:
     FileCommandArgument();
 };

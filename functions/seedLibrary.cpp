@@ -1,9 +1,8 @@
 #include <iostream>
 #include "../structures/Library.h"
+#include "functions.h"
 
 void seedLibrary (Library *library) {
-    std::cout << "Введите название библиотеки ";
-    std::getline(std::cin, library->name);
-    std::cout << "Введите имя владельца библиотеки ";
-    std::getline(std::cin, library->owner);
+    seedFieldConsideringDefaultValue("Название библиотеки", library->name);
+    seedFieldConsideringDefaultValue("Имя владельца библиотеки", library->owner);
 }
