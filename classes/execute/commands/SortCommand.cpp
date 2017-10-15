@@ -1,7 +1,7 @@
-#include "SortByCommand.h"
+#include "SortCommand.h"
 #include "../../../globals.h"
 
-SortByCommand::SortByCommand() {
+SortCommand::SortCommand() {
     fieldArgument = new FieldCommandArgument;
     setArgument(fieldArgument);
     sortDirectionArgument = new SortDirectionCommandArgument;
@@ -10,7 +10,7 @@ SortByCommand::SortByCommand() {
     description = "Отсортировать список книг";
 }
 
-void SortByCommand::execute() {
+void SortCommand::execute() {
     std::sort(library->books->begin(), library->books->end(), [&](Book *first, Book *second) -> bool {
         bool result = *first->fields[fieldArgument->value] < *second->fields[fieldArgument->value];
         return sortDirectionArgument->value == "asc" == result;

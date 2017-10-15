@@ -11,7 +11,7 @@ public:
     TableDrawer<RowType> *tableDrawer;
 
     IndexCellDrawer() {
-        this->heading = "ID";
+        this->heading = "Индекс";
     }
 
     std::string getValue() {

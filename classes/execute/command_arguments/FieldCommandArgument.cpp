@@ -2,6 +2,6 @@
 
 FieldCommandArgument::FieldCommandArgument() {
     name = "field";
-    description = "Навзание поля книги (author, title, publisher, year, storePlace)";
+    description = "Название поля книги (author, title, publisher, year, storePlace)";
     regexString = "author|title|publisher|year|storePlace";
 }

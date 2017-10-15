@@ -6,12 +6,12 @@
 #include "../base/Command.h"
 #include "../command_arguments/SortDirectionCommandArgument.h"
 
-class SortByCommand : public Command {
+class SortCommand : public Command {
 protected:
     FieldCommandArgument *fieldArgument;
     SortDirectionCommandArgument *sortDirectionArgument;
 public:
-    SortByCommand();
+    SortCommand();
     void execute();
 };
 

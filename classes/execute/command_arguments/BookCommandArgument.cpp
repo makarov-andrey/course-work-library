@@ -2,8 +2,8 @@
 #include "../../../globals.h"
 
 BookCommandArgument::BookCommandArgument() {
-    name = "book-id";
-    description = "ID книги";
+    name = "book-index";
+    description = "Индекс книги";
     regexString = "\\d+";
 }
 

@@ -3,7 +3,7 @@
 #include "execute/commands/SaveToFileCommand.h"
 #include "execute/commands/UpdateBookCommand.h"
 #include "execute/commands/DeleteBookCommand.h"
-#include "execute/commands/SortByCommand.h"
+#include "execute/commands/SortCommand.h"
 #include "execute/commands/FilterCommand.h"
 
 Router::Router() {
@@ -12,7 +12,7 @@ Router::Router() {
     commands->push_back(new CreateBookCommand);
     commands->push_back(new UpdateBookCommand);
     commands->push_back(new DeleteBookCommand);
-    commands->push_back(new SortByCommand);
+    commands->push_back(new SortCommand);
     commands->push_back(new FilterCommand);
 }
 
