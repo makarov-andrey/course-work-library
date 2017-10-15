@@ -12,10 +12,10 @@ Book *BookCommandArgument::getBook() {
         return nullptr;
     }
     int position = getBookPosition();
-    if (position > (library->books->size() - 1)) {
+    if (position > (globalLibrary->books->size() - 1)) {
         return nullptr;
     }
-    return library->books->at(position);
+    return globalLibrary->books->at(position);
 }
 
 int BookCommandArgument::getBookPosition() {

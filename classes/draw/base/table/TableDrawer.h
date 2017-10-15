@@ -7,14 +7,16 @@
 #include "../../../../colors.h"
 #include "../../../../functions/functions.h"
 #include "../cell/IndexCellDrawer.h"
+#include "../../common/BorderDrawer.h"
 
 template<typename RowType>
-class TableDrawer : public Drawable {
+class TableDrawer :
+        public Drawable,
+        public BorderDrawer {
 public:
     typedef CellDrawer<RowType> TypedCellDrawer;
 
     int headingColor;
-    int borderColor;
     int cellColor;
 
     TableDrawer() {
@@ -25,7 +27,6 @@ public:
         cellDrawers->push_back(indexCellDrawer);
 
         headingColor = COLOR_LIGHT_GREEN;
-        borderColor = DEFAULT_CHAR_COLOR;
         cellColor = DEFAULT_CHAR_COLOR;
     }
 
@@ -81,19 +82,7 @@ protected:
         renderHorizontalBorderLine();
     }
 
-    void renderHorizontalBorderLine() {
-        setColor(borderColor);
-        std::cout << std::string(getTableWidth(), '-') << std::endl;
-        setColor();
-    }
-
-    void renderVerticalBorderSymbol() {
-        setColor(borderColor);
-        std::cout << '|';
-        setColor();
-    }
-
-    int getTableWidth() {
+    int getBorderWidth() {
         int size = 1;
         for (auto &cellDrawer: *cellDrawers) {
             size += cellDrawer->size;

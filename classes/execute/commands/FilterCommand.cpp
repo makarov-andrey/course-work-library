@@ -1,7 +1,7 @@
 #include "FilterCommand.h"
 #include "../../../functions/functions.h"
 #include "../../../globals.h"
-#include "../../exceptions/BadCompareOperatorCommandArgumentException.h"
+#include "../../exceptions/BadCompareOperatorException.h"
 
 FilterCommand::FilterCommand() {
     fieldArgument = new FieldCommandArgument;
@@ -16,10 +16,11 @@ FilterCommand::FilterCommand() {
     pattern = "filter <" + fieldArgument->name + "> <" + compareOperatorArgument->name + "> <" + valueArgument->name + ">";
 
     description = "Отфильтровать список книг";
+    successMessage = "Список книг успешно отфильтрован";
 }
 
 void FilterCommand::execute() {
-    filterVector<Book*>(library->books, [&](Book *book) -> bool {
+    filterVector<Book*>(globalLibrary->books, [&](Book *book) -> bool {
         std::string fieldValue = *book->fields[fieldArgument->value];
         std::string compareOperator = compareOperatorArgument->value;
         if (compareOperator == "=") {
@@ -33,6 +34,6 @@ void FilterCommand::execute() {
         } else if (compareOperator == "<=") {
             return fieldValue <= valueArgument->value;
         }
-        //throw BadCompareOperatorCommandArgumentException();
+        throw BadCompareOperatorException();
     });
 }

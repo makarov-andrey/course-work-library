@@ -2,9 +2,9 @@
 #define COURSE_WORK_BADCOMPAREOPERATORCOMMANDARGUMENTEXCEPTION_H
 
 
-#include "Exception.h"
+#include "BadInputException.h"
 
-class BadCompareOperatorCommandArgumentException : public Exception { };
+class BadCompareOperatorException : public BadInputException { };
 
 
 #endif //COURSE_WORK_BADCOMPAREOPERATORCOMMANDARGUMENTEXCEPTION_H

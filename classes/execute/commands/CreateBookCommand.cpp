@@ -5,9 +5,10 @@
 CreateBookCommand::CreateBookCommand() {
     pattern = "create book";
     description = "Добавить книгу";
+    successMessage = "Книга успешно добавлена";
 }
 
 void CreateBookCommand::execute() {
     cleanConsole();
-    library->books->push_back(createAndSeedBook());
+    globalLibrary->books->push_back(createAndSeedBook());
 }

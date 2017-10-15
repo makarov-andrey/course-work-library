@@ -3,6 +3,6 @@
 #include "functions.h"
 
 void seedLibrary (Library *library) {
-    seedFieldConsideringDefaultValue("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ", library->name);
-    seedFieldConsideringDefaultValue("пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ", library->owner);
+    seedFieldConsideringDefaultValue("Название библиотеки", library->name);
+    seedFieldConsideringDefaultValue("Владелец библиотеки", library->owner);
 }

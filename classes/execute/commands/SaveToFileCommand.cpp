@@ -7,8 +7,9 @@ SaveToFileCommand::SaveToFileCommand() {
     setArgument(fileArgument);
     pattern = "save to <" + fileArgument->name + ">";
     description = "Сохранить библиотеку в файл";
+    successMessage = "Библиотека успешно сохранена в файл";
 }
 
 void SaveToFileCommand::execute() {
-    LibraryFileMutator::save(library, fileArgument->value);
+    LibraryFileMutator::save(globalLibrary, fileArgument->value);
 }

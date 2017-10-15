@@ -3,9 +3,9 @@
 #include "functions.h"
 
 void seedBook (Book *book) {
-    seedFieldConsideringDefaultValue("пїЅпїЅпїЅпїЅпїЅ", book->author);
-    seedFieldConsideringDefaultValue("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ", book->title);
-    seedFieldConsideringDefaultValue("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ", book->publisher);
-    seedFieldConsideringDefaultValue("пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ", book->year);
-    seedFieldConsideringDefaultValue("пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ", book->storePlace);
+    seedFieldConsideringDefaultValue("Автор", book->author);
+    seedFieldConsideringDefaultValue("Название", book->title);
+    seedFieldConsideringDefaultValue("Издательство", book->publisher);
+    seedFieldConsideringDefaultValue("Год издания", book->year);
+    seedFieldConsideringDefaultValue("Место хранения", book->storePlace);
 }

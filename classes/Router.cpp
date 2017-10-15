@@ -5,6 +5,11 @@
 #include "execute/commands/DeleteBookCommand.h"
 #include "execute/commands/SortCommand.h"
 #include "execute/commands/FilterCommand.h"
+#include "../globals.h"
+#include "draw/message-queue/messages/ErrorMessageDrawer.h"
+#include "exceptions/BadInputException.h"
+#include "exceptions/BadCommandException.h"
+#include "draw/message-queue/messages/SuccessMessageDrawer.h"
 
 Router::Router() {
     commands = new std::vector<Command*>;
@@ -21,11 +26,19 @@ std::vector<Command *> *Router::getCommands() {
 }
 
 void Router::route(std::string input) {
-    for (auto &command: *commands) {
-        if (command->match(input)) {
-            command->execute();
-            return;
+    try {
+        for (auto &command: *commands) {
+            if (command->match(input)) {
+                command->execute();
+                if (!command->successMessage.empty()) {
+                    globalMessages->push(new SuccessMessageDrawer(command->successMessage));
+                }
+                return;
+            }
         }
+        throw BadCommandException();
+    } catch (const BadInputException &exception) {
+        globalMessages->push(new ErrorMessageDrawer(exception.what()));
+        return;
     }
-    //TODO error message
 }

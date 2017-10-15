@@ -2,11 +2,9 @@
 #define COURSE_WORK_EXCEPTION_H
 
 #include <string>
+#include <exception>
 
-class Exception {
-public:
-    std::string message;
-};
+class BadInputException : public std::exception { };
 
 
 #endif //COURSE_WORK_EXCEPTION_H

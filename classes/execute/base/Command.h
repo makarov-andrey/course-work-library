@@ -16,6 +16,7 @@ protected:
 public:
     Command();
     std::string description;
+    std::string successMessage;
     bool match (std::string input);
     void setArgument(CommandArgument *argument);
     CommandArgument *findArgument(std::string argumentName);
