@@ -1,5 +1,5 @@
 #include "DeleteBookCommand.h"
-#include "../../../structures/Book.h"
+#include "../../models/Book.h"
 #include "../../../globals.h"
 
 DeleteBookCommand::DeleteBookCommand() {

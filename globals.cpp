@@ -1,3 +1,3 @@
-#include "structures/Library.h"
+#include "classes/models/Library.h"
 
 Library *library;

@@ -1,11 +1,11 @@
 #include <iostream>
-#include "../structures/Book.h"
+#include "../classes/models/Book.h"
 #include "functions.h"
 
 void seedBook (Book *book) {
-    seedFieldConsideringDefaultValue("Автор", book->author);
-    seedFieldConsideringDefaultValue("Название", book->title);
-    seedFieldConsideringDefaultValue("Издательство", book->publisher);
-    seedFieldConsideringDefaultValue("Год издания", book->year);
-    seedFieldConsideringDefaultValue("Место хранения", book->storePlace);
+    seedFieldConsideringDefaultValue("пїЅпїЅпїЅпїЅпїЅ", book->author);
+    seedFieldConsideringDefaultValue("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ", book->title);
+    seedFieldConsideringDefaultValue("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ", book->publisher);
+    seedFieldConsideringDefaultValue("пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ", book->year);
+    seedFieldConsideringDefaultValue("пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ", book->storePlace);
 }

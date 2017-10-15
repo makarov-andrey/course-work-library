@@ -1,8 +1,8 @@
 #include <iostream>
-#include "../structures/Library.h"
+#include "../classes/models/Library.h"
 #include "functions.h"
 
 void seedLibrary (Library *library) {
-    seedFieldConsideringDefaultValue("Название библиотеки", library->name);
-    seedFieldConsideringDefaultValue("Имя владельца библиотеки", library->owner);
+    seedFieldConsideringDefaultValue("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ", library->name);
+    seedFieldConsideringDefaultValue("пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ", library->owner);
 }

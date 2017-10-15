@@ -1,5 +1,5 @@
 #include "UpdateBookCommand.h"
-#include "../../../structures/Book.h"
+#include "../../models/Book.h"
 #include "../../../globals.h"
 #include "../../../functions/functions.h"
 

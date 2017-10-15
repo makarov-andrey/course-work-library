@@ -1,6 +1,6 @@
 #include <iostream>
 #include "functions.h"
-#include "../classes/LibraryFileMutator.h"
+#include "../classes/utils/LibraryFileMutator.h"
 
 Library *askLibrary() {
     std::cout << "¬ведите им€ файла дл€ загрузки библиотеки или оставьте поле пустым, если хотите создать новую" << std::endl;

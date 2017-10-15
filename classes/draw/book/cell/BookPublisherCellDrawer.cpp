@@ -1,5 +1,5 @@
 #include "BookPublisherCellDrawer.h"
-#include "../../../../structures/Book.h"
+#include "../../../models/Book.h"
 
 BookPublisherCellDrawer::BookPublisherCellDrawer() {
     heading = "Издательство";

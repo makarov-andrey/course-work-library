@@ -3,7 +3,7 @@
 
 #include "../../Drawable.h"
 #include "../cell/CellDrawer.h"
-#include "../../../../structures/Book.h"
+#include "../../../models/Book.h"
 #include "../../../../colors.h"
 #include "../../../../functions/functions.h"
 #include "../cell/IndexCellDrawer.h"

@@ -3,6 +3,7 @@
 #include "execute/commands/SaveToFileCommand.h"
 #include "execute/commands/UpdateBookCommand.h"
 #include "execute/commands/DeleteBookCommand.h"
+#include "execute/commands/SortByCommand.h"
 
 Router::Router() {
     commands = new std::vector<Command*>;
@@ -10,6 +11,7 @@ Router::Router() {
     commands->push_back(new CreateBookCommand);
     commands->push_back(new UpdateBookCommand);
     commands->push_back(new DeleteBookCommand);
+    commands->push_back(new SortByCommand);
 }
 
 std::vector<Command *> *Router::getCommands() {

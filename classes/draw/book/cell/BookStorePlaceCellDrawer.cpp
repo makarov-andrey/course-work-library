@@ -1,5 +1,5 @@
 #include "BookStorePlaceCellDrawer.h"
-#include "../../../../structures/Book.h"
+#include "../../../models/Book.h"
 
 BookStorePlaceCellDrawer::BookStorePlaceCellDrawer() {
     heading = "Место хранения";

@@ -2,7 +2,7 @@
 #define COURSE_WORK_BOOKCELLDRAWER_H
 
 
-#include "../../../../structures/Book.h"
+#include "../../../models/Book.h"
 #include "../../base/cell/IterateSizeCountedCellDrawer.h"
 
 typedef IterateSizeCountedCellDrawer<Book> BookCellDrawer;

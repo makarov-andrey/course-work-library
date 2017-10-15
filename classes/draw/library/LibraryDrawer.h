@@ -3,7 +3,7 @@
 
 
 #include "../book/table/BookTableDrawer.h"
-#include "../../../structures/Library.h"
+#include "../../models/Library.h"
 
 class LibraryDrawer : public Drawable {
 protected:

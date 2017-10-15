@@ -1,4 +1,4 @@
-#include "../structures/Library.h"
+#include "../classes/models/Library.h"
 #include "functions.h"
 
 Library *createAndSeedLibrary() {

@@ -1,5 +1,5 @@
 #include "BookTitleCellDrawer.h"
-#include "../../../../structures/Book.h"
+#include "../../../models/Book.h"
 
 BookTitleCellDrawer::BookTitleCellDrawer() {
     heading = "Название";

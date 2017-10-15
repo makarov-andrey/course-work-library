@@ -5,13 +5,13 @@
 #include <vector>
 #include "Book.h"
 
-typedef struct Library {
+class Library {
 public:
     Library();
     std::string name;
     std::string owner;
     std::vector<Book*> *books;
-} Library;
+};
 
 
 #endif //COURSE_WORK_LIBRARY_H

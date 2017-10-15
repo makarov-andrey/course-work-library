@@ -1,5 +1,5 @@
 #include "BookYearCellDrawer.h"
-#include "../../../../structures/Book.h"
+#include "../../../models/Book.h"
 
 BookYearCellDrawer::BookYearCellDrawer() {
     heading = "Год издания";

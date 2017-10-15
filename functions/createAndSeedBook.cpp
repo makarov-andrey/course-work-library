@@ -1,4 +1,4 @@
-#include "../structures/Book.h"
+#include "../classes/models/Book.h"
 #include "functions.h"
 
 Book *createAndSeedBook() {

@@ -1,6 +1,6 @@
 #include <iostream>
 #include "LibraryDrawer.h"
-#include "../../../structures/Library.h"
+#include "../../models/Library.h"
 
 LibraryDrawer::LibraryDrawer() {
     headingColor = COLOR_LIGHT_GREEN;

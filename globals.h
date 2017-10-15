@@ -1,7 +1,7 @@
 #ifndef COURSE_WORK_GLOBALS_H
 #define COURSE_WORK_GLOBALS_H
 
-#include "structures/Library.h"
+#include "classes/models/Library.h"
 
 extern Library *library;
 

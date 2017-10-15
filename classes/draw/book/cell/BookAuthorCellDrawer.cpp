@@ -1,5 +1,5 @@
 #include "BookAuthorCellDrawer.h"
-#include "../../../../structures/Book.h"
+#include "../../../models/Book.h"
 
 BookAuthorCellDrawer::BookAuthorCellDrawer() {
     heading = "Автор";

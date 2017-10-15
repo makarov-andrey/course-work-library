@@ -3,7 +3,7 @@
 
 
 #include "../base/CommandArgument.h"
-#include "../../../structures/Book.h"
+#include "../../models/Book.h"
 
 class BookCommandArgument : public CommandArgument {
 public:

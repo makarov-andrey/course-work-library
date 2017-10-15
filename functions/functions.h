@@ -3,8 +3,8 @@
 
 #include <string>
 #include "../colors.h"
-#include "../structures/Book.h"
-#include "../structures/Library.h"
+#include "../classes/models/Book.h"
+#include "../classes/models/Library.h"
 
 Library *askLibrary();
 std::string askUntil(bool (*validator)(std::string), std::string errorMessage = "");
