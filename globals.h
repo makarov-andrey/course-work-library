@@ -3,9 +3,9 @@
 
 #include <queue>
 #include "classes/models/Library.h"
-#include "classes/draw/message-queue/messages/MessageDrawer.h"
+#include "classes/messages/Message.h"
 
 extern Library *globalLibrary;
-extern std::queue<MessageDrawer*> *globalMessages;
+extern std::queue<Message*> *globalMessages;
 
 #endif //COURSE_WORK_GLOBALS_H

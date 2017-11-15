@@ -4,14 +4,14 @@
 
 #include <queue>
 #include "../Drawable.h"
-#include "messages/MessageDrawer.h"
+#include "../../messages/Message.h"
 
 class MessageQueueDrawer : public Drawable {
 protected:
-    std::queue<MessageDrawer*> *messages;
+    std::queue<Message*> *messages;
 
 public:
-    void setMessages(std::queue<MessageDrawer*> *messages);
+    void setMessages(std::queue<Message*> *messages);
     void render ();
 };
 

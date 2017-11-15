@@ -13,6 +13,7 @@
     <file url="file://$PROJECT_DIR$/classes/execute/commands/SaveToFileCommand.cpp" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/classes/execute/commands/UpdateBookCommand.cpp" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/classes/models/Book.h" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/functions/askCommand.cpp" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/functions/askLibrary.cpp" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/functions/askWhile.cpp" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/functions/checkFileName.cpp" charset="windows-1251" />

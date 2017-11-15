@@ -1,6 +1,6 @@
 #include <queue>
 #include "classes/models/Library.h"
-#include "classes/draw/message-queue/messages/MessageDrawer.h"
+#include "classes/messages/Message.h"
 
 Library *globalLibrary;
-std::queue<MessageDrawer*> *globalMessages = new std::queue<MessageDrawer*>;
+std::queue<Message*> *globalMessages = new std::queue<Message*>;

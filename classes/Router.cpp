@@ -6,10 +6,10 @@
 #include "execute/commands/SortCommand.h"
 #include "execute/commands/FilterCommand.h"
 #include "../globals.h"
-#include "draw/message-queue/messages/ErrorMessageDrawer.h"
+#include "messages/ErrorMessage.h"
 #include "exceptions/BadInputException.h"
 #include "exceptions/BadCommandException.h"
-#include "draw/message-queue/messages/SuccessMessageDrawer.h"
+#include "messages/SuccessMessage.h"
 
 Router::Router() {
     commands = new std::vector<Command*>;
@@ -31,14 +31,14 @@ void Router::route(std::string input) {
             if (command->match(input)) {
                 command->execute();
                 if (!command->successMessage.empty()) {
-                    globalMessages->push(new SuccessMessageDrawer(command->successMessage));
+                    globalMessages->push(new SuccessMessage(command->successMessage));
                 }
                 return;
             }
         }
         throw BadCommandException();
     } catch (const BadInputException &exception) {
-        globalMessages->push(new ErrorMessageDrawer(exception.what()));
+        globalMessages->push(new ErrorMessage(exception.what()));
         return;
     }
 }

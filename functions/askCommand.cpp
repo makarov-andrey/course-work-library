@@ -3,7 +3,7 @@
 #include "functions.h"
 
 std::string askCommand () {
-    setColor(COLOR_LIGHT_MAGENTA);
+    setColor(COLOR_LIGHT_RED);
     std::cout << "¬ведите команду: ";
     setColor();
     std::string command;
