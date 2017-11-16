@@ -8,6 +8,7 @@ public:
     static std::string formatAlignmentLeft (std::string input, int size);
     static std::string formatAlignmentRight (std::string input, int size);
     static std::string formatAlignmentCenter (std::string input, int size);
+    static std::string shieldRegexSymbols(std::string input);
 };
 
 

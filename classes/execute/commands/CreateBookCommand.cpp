@@ -11,5 +11,7 @@ CreateBookCommand::CreateBookCommand() {
 
 void CreateBookCommand::execute() {
     CommandLineInterface::cleanConsole();
-    globalLibrary->books->push_back(createAndSeedBook());
+    auto *book = new Book;
+    CommandLineInterface::seedBook(book);
+    globalLibrary->books->push_back(book);
 }

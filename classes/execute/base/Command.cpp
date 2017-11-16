@@ -1,5 +1,6 @@
 #include "Command.h"
 #include "../../../functions/functions.h"
+#include "../../StringFormatter.h"
 
 Command::Command() {
     arguments = new std::map<std::string, CommandArgument*>;
@@ -18,7 +19,7 @@ std::string Command::getRegexString() {
     int endOfLastMatch = 0;
     auto patternBuffer = this->pattern;
     iteratePatternArguments([&](CommandArgument *command, std::smatch match) mutable {
-        regexString += shieldRegexSymbols(patternBuffer.substr(endOfLastMatch, match.position() - endOfLastMatch));
+        regexString += StringFormatter::shieldRegexSymbols(patternBuffer.substr(endOfLastMatch, match.position() - endOfLastMatch));
         regexString += "(" + command->regexString + ")";
         endOfLastMatch = match.position() + match.length();
     });

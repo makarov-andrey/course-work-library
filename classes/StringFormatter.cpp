@@ -1,3 +1,4 @@
+#include <regex>
 #include "StringFormatter.h"
 
 std::string StringFormatter::formatAlignmentCenter (std::string input, int size) {
@@ -22,4 +23,8 @@ std::string StringFormatter::formatAlignmentRight (std::string input, int size) 
         return input;
     }
     return std::string(whiteSpacesLength, ' ') + input;
+}
+
+std::string StringFormatter::shieldRegexSymbols(std::string input) {
+    return std::regex_replace(input, std::regex("([{}()\\[\\]^$?+.*\\\\])"), "\\$1");
 }

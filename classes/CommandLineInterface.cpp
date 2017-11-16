@@ -7,9 +7,13 @@
 Library *CommandLineInterface::askLibrary() {
     std::cout << "Введите имя файла для загрузки библиотеки или оставьте поле пустым, если хотите создать новую" << std::endl;
     std::string filename = askUntil(checkFileName, "Неправильное имя файла. Попробуйте еще раз");
-    return filename.empty()
-           ? createAndSeedLibrary()
-           : LibraryFileMutator::load(filename);
+    if (filename.empty()) {
+        Library *library = new Library;
+        CommandLineInterface::seedLibrary(library);
+        return library;
+    } else {
+        return LibraryFileMutator::load(filename);
+    }
 }
 
 std::string CommandLineInterface::askUntil(bool (*validator)(std::string), std::string errorMessage) {

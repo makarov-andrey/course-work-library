@@ -9,13 +9,7 @@
 
 bool isFileExists(std::string fileName);
 bool checkFileName(std::string fileName);
-Library *loadLibraryFromFile(std::string fileName);
-Library *createAndSeedLibrary();
-bool checkCommand (std::string command);
-Book *createBookFromString (std::string line);
 void config();
-std::string shieldRegexSymbols(std::string input);
-Book *createAndSeedBook();
 
 template<typename T> void filterVector(std::vector<T> *vector, std::function<bool(T)> verdict){
     for(typename std::vector<T>::iterator it = vector->begin(); it != vector->end(); ++it) {
