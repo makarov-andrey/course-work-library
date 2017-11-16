@@ -1,6 +1,7 @@
 #include "UpdateBookCommand.h"
 #include "../../../functions/functions.h"
 #include "../../exceptions/BadBookIndexException.h"
+#include "../../CommandLineInterface.h"
 
 UpdateBookCommand::UpdateBookCommand() {
     bookArgument = new BookCommandArgument;
@@ -15,6 +16,6 @@ void UpdateBookCommand::execute() {
     if (!book) {
         throw BadBookIndexException();
     }
-    cleanConsole();
-    seedBook(book);
+    CommandLineInterface::cleanConsole();
+    CommandLineInterface::seedBook(book);
 }

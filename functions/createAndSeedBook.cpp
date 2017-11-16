@@ -1,8 +1,9 @@
 #include "../classes/models/Book.h"
 #include "functions.h"
+#include "../classes/CommandLineInterface.h"
 
 Book *createAndSeedBook() {
     auto *book = new Book;
-    seedBook(book);
+    CommandLineInterface::seedBook(book);
     return book;
 }

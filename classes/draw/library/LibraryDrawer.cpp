@@ -18,23 +18,23 @@ void LibraryDrawer::render() {
 }
 
 void LibraryDrawer::renderName() {
-    setColor(headingColor);
+    CommandLineInterface::setColor(headingColor);
     std::cout << "Название библиотеки: ";
-    setColor();
+    CommandLineInterface::setColor();
     std::cout << library->name << std::endl;
 }
 
 void LibraryDrawer::renderOwner() {
-    setColor(headingColor);
+    CommandLineInterface::setColor(headingColor);
     std::cout << "Владелец библиотеки: ";
-    setColor();
+    CommandLineInterface::setColor();
     std::cout << library->owner << std::endl;
 }
 
 void LibraryDrawer::renderBooks() {
-    setColor(headingColor);
+    CommandLineInterface::setColor(headingColor);
     std::cout << "Книги:" << std::endl;
-    setColor();
+    CommandLineInterface::setColor();
     BookTableDrawer *booksDrawer = new BookTableDrawer();
     booksDrawer->setBody(library->books);
     booksDrawer->recountCellSizes();

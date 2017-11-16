@@ -8,7 +8,7 @@
 int main() {
     config();
 
-    globalLibrary = askLibrary();
+    globalLibrary = CommandLineInterface::askLibrary();
 
     auto *libraryDrawer = new LibraryDrawer();
     libraryDrawer->setLibrary(globalLibrary);
@@ -22,11 +22,11 @@ int main() {
     messageQueueDrawer->setMessages(globalMessages);
 
     while (true) {
-        cleanConsole();
+        CommandLineInterface::cleanConsole();
         libraryDrawer->render();
         commandMenuDrawer->render();
         messageQueueDrawer->render();
-        router->route(askCommand());
+        router->route(CommandLineInterface::askCommand());
     }
 
     return EXIT_SUCCESS;

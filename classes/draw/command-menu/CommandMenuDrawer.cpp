@@ -2,6 +2,7 @@
 #include "CommandMenuDrawer.h"
 #include "../../../colors.h"
 #include "../../../functions/functions.h"
+#include "../../CommandLineInterface.h"
 
 CommandMenuDrawer::CommandMenuDrawer() {
     commandColor = COLOR_YELLOW;
@@ -18,11 +19,11 @@ void CommandMenuDrawer::render() {
 }
 
 void CommandMenuDrawer::renderCommand(Command *command) {
-    setColor(commandColor);
+    CommandLineInterface::setColor(commandColor);
     std::cout << command->getPattern();
-    setColor(descriptionColor);
+    CommandLineInterface::setColor(descriptionColor);
     std::cout << " - " << command->description;
-    setColor();
+    CommandLineInterface::setColor();
     if (!command->getArguments()->empty()) {
         std::cout << ". Принимает аргументы:";
     }
@@ -34,11 +35,11 @@ void CommandMenuDrawer::renderCommand(Command *command) {
 
 void CommandMenuDrawer::renderArgument(CommandArgument *argument) {
     std::cout << std::string(3, ' ');
-    setColor(argumentColor);
+    CommandLineInterface::setColor(argumentColor);
     std::cout << argument->name;
-    setColor(descriptionColor);
+    CommandLineInterface::setColor(descriptionColor);
     std::cout << " - " << argument->description;
-    setColor();
+    CommandLineInterface::setColor();
     std::cout << std::endl;
 }
 

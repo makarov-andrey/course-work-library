@@ -8,6 +8,7 @@
 #include "../../../../functions/functions.h"
 #include "../cell/IndexCellDrawer.h"
 #include "../../common/BorderDrawer.h"
+#include "../../../CommandLineInterface.h"
 
 template<typename RowType>
 class TableDrawer :
@@ -60,9 +61,9 @@ protected:
         renderHorizontalBorderLine();
         renderVerticalBorderSymbol();
         for (auto &cellDrawer: *cellDrawers) {
-            setColor(headingColor);
+            CommandLineInterface::setColor(headingColor);
             cellDrawer->renderHeading();
-            setColor();
+            CommandLineInterface::setColor();
             renderVerticalBorderSymbol();
         }
         std::cout << std::endl;
@@ -72,10 +73,10 @@ protected:
     void renderRow(RowType *row) {
         renderVerticalBorderSymbol();
         for (auto &cellDrawer: *cellDrawers) {
-            setColor(cellColor);
+            CommandLineInterface::setColor(cellColor);
             cellDrawer->row = row;
             cellDrawer->render();
-            setColor();
+            CommandLineInterface::setColor();
             renderVerticalBorderSymbol();
         }
         std::cout << std::endl;

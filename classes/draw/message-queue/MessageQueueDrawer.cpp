@@ -1,13 +1,14 @@
 #include <iostream>
 #include "MessageQueueDrawer.h"
 #include "../../../functions/functions.h"
+#include "../../CommandLineInterface.h"
 
 void MessageQueueDrawer::render() {
     while (!messages->empty()) {
         auto message = messages->front();
-        setColor(message->charColor, message->backgroundColor);
+        CommandLineInterface::setColor(message->charColor, message->backgroundColor);
         std::cout << " " << message->text << " " << std::endl;
-        setColor();
+        CommandLineInterface::setColor();
         messages->pop();
         delete message;
     }
