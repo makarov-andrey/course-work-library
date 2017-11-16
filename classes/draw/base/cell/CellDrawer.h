@@ -6,6 +6,7 @@
 #include <iostream>
 #include "../../Drawable.h"
 #include "../../../../functions/functions.h"
+#include "../../../StringFormatter.h"
 
 template<typename RowType> class CellDrawer : public Drawable {
 public:
@@ -21,11 +22,11 @@ public:
     }
 
     void renderHeading() {
-        std::cout << formatAlignmentCenter(heading, size);
+        std::cout << StringFormatter::formatAlignmentCenter(heading, size);
     }
 
     void render() {
-        std::cout << formatAlignmentLeft(getValue(), size);
+        std::cout << StringFormatter::formatAlignmentLeft(getValue(), size);
     }
 };
 

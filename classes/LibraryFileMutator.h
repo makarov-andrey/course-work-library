@@ -2,8 +2,8 @@
 #define COURSE_WORK_LIBRARYFILEMUTATOR_H
 
 #include <string>
-#include "../models/Library.h"
-#include "../models/Book.h"
+#include "models/Library.h"
+#include "models/Book.h"
 
 class LibraryFileMutator {
 public:

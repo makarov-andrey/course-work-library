@@ -2,7 +2,7 @@
 #include <windows.h>
 #include "CommandLineInterface.h"
 #include "../functions/functions.h"
-#include "utils/LibraryFileMutator.h"
+#include "LibraryFileMutator.h"
 
 Library *CommandLineInterface::askLibrary() {
     std::cout << "¬ведите им€ файла дл€ загрузки библиотеки или оставьте поле пустым, если хотите создать новую" << std::endl;
