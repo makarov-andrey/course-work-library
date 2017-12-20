@@ -58,9 +58,7 @@ void CommandLineInterface::setColor(int charColor, int backgroundColor) {
 }
 
 std::string CommandLineInterface::askCommand () {
-    CommandLineInterface::setColor(COLOR_LIGHT_RED);
-    std::cout << "¬ведите команду: ";
-    CommandLineInterface::setColor();
+    CommandLineInterface::print("¬ведите команду: ", COLOR_LIGHT_RED);
     std::string command;
     std::getline(std::cin, command);
     return command;
@@ -77,4 +75,10 @@ void CommandLineInterface::seedFieldConsideringDefaultValue (std::string title, 
     if (!input.empty()) {
         field = input;
     }
+}
+
+void CommandLineInterface::print(std::string text, int charColor, int backgroundColor) {
+    CommandLineInterface::setColor(charColor, backgroundColor);
+    std::cout << text;
+    CommandLineInterface::setColor();
 }

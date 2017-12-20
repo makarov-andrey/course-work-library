@@ -2,6 +2,7 @@
 #include "../../../functions/functions.h"
 #include "../../../globals.h"
 #include "../../exceptions/BadCompareOperatorException.h"
+#include "../../draw/book/table/BookTableDrawer.h"
 
 FilterCommand::FilterCommand() {
     fieldArgument = new FieldCommandArgument;
@@ -16,11 +17,12 @@ FilterCommand::FilterCommand() {
     pattern = "filter <" + fieldArgument->name + "> <" + compareOperatorArgument->name + "> <" + valueArgument->name + ">";
 
     description = "Отфильтровать список книг";
-    successMessage = "Список книг успешно отфильтрован";
 }
 
 void FilterCommand::execute() {
-    filterVector<Book*>(globalLibrary->books, [&](Book *book) -> bool {
+    CommandLineInterface::cleanConsole();
+
+    auto filteredVector = copyFilteredVector<Book *>(globalLibrary->books, [&](Book *book) -> bool {
         std::string fieldValue = *book->fields[fieldArgument->value];
         std::string compareOperator = compareOperatorArgument->value;
         if (compareOperator == "=") {
@@ -36,4 +38,15 @@ void FilterCommand::execute() {
         }
         throw BadCompareOperatorException();
     });
+
+    std::cout << "Отфильтрованный список книг:" << std::endl;
+    BookTableDrawer bookTableDrawer;
+    bookTableDrawer.setBody(filteredVector);
+    bookTableDrawer.render();
+    CommandLineInterface::print("Нажмите enter чтобы продолжить:", COLOR_LIGHT_RED);
+
+    std::string a;
+    std::getline(std::cin, a);
+
+    delete filteredVector;
 }

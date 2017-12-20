@@ -11,13 +11,14 @@ bool isFileExists(std::string fileName);
 bool checkFileName(std::string fileName);
 void config();
 
-template<typename T> void filterVector(std::vector<T> *vector, std::function<bool(T)> verdict){
-    for(typename std::vector<T>::iterator it = vector->begin(); it != vector->end(); ++it) {
-        if (!verdict(*it.base())) {
-            vector->erase(it);
-            it--;
+template<typename T> std::vector<T> *copyFilteredVector(std::vector<T> *vector, std::function<bool(T)> verdict){
+    auto *filteredVector = new std::vector<T>;
+    for(auto &it: *vector) {
+        if (verdict(it)) {
+            filteredVector->push_back(it);
         }
     }
+    return filteredVector;
 }
 
 

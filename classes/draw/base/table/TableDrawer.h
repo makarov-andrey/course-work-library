@@ -46,6 +46,7 @@ public:
 
     void setBody(std::vector<RowType *> *body) {
         this->body = body;
+        this->recountCellSizes();
     }
 
     int getIndexOfElement (RowType *row) {

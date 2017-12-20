@@ -37,7 +37,6 @@ void LibraryDrawer::renderBooks() {
     CommandLineInterface::setColor();
     BookTableDrawer *booksDrawer = new BookTableDrawer();
     booksDrawer->setBody(library->books);
-    booksDrawer->recountCellSizes();
     booksDrawer->render();
     delete booksDrawer;
 }

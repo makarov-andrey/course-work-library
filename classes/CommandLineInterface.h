@@ -13,6 +13,7 @@ public:
     static void seedBook (Book *book);
     static void cleanConsole(char fill = ' ');
     static void setColor(int charColor = DEFAULT_CHAR_COLOR, int backgroundColor = DEFAULT_BACKGROUND_COLOR);
+    static void print(std::string text, int charColor = DEFAULT_CHAR_COLOR, int backgroundColor = DEFAULT_BACKGROUND_COLOR);
     static std::string askCommand();
     static void seedFieldConsideringDefaultValue (std::string title, std::string &field);
 };
