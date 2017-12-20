@@ -43,6 +43,7 @@ Book *LibraryFileMutator::formattedStringToBook(std::string line) {
     std::getline(lineStream, book->publisher, fieldSeparatorSymbol);
     std::getline(lineStream, book->year, fieldSeparatorSymbol);
     std::getline(lineStream, book->storePlace, fieldSeparatorSymbol);
+    book->formatFields();
     return book;
 }
 

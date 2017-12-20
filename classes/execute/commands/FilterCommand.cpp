@@ -23,20 +23,11 @@ void FilterCommand::execute() {
     CommandLineInterface::cleanConsole();
 
     auto filteredVector = copyFilteredVector<Book *>(globalLibrary->books, [&](Book *book) -> bool {
-        std::string fieldValue = *book->fields[fieldArgument->value];
-        std::string compareOperator = compareOperatorArgument->value;
-        if (compareOperator == "=") {
-            return fieldValue == valueArgument->value;
-        } else if (compareOperator == ">") {
-            return fieldValue > valueArgument->value;
-        } else if (compareOperator == "<") {
-            return fieldValue < valueArgument->value;
-        } else if (compareOperator == ">=") {
-            return fieldValue >= valueArgument->value;
-        } else if (compareOperator == "<=") {
-            return fieldValue <= valueArgument->value;
-        }
-        throw BadCompareOperatorException();
+        Book::field field = fieldArgument->toBookEnumField();
+        Comparator::type type = Book::getComparatorType(field);
+        std::string fieldValue = book->getValue(field);
+        Comparator::operatorType operatorType = compareOperatorArgument->toComparatorEnumOperator();
+        return Comparator::compare(fieldValue, valueArgument->value, type, operatorType);
     });
 
     std::cout << "Отфильтрованный список книг:" << std::endl;

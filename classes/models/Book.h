@@ -3,10 +3,11 @@
 
 #include <string>
 #include <map>
+#include "../Comparator.h"
 
 class Book {
 public:
-    std::map<std::string, std::string*> fields;
+    enum field {AUTHOR, TITLE, PUBLISHER, YEAR, STORE_PLACE};
 
     std::string author;
     std::string title;
@@ -14,7 +15,10 @@ public:
     std::string year;
     std::string storePlace;
 
-    Book();
+    std::string getValue(field field);
+    static Comparator::type getComparatorType(field field);
+
+    void formatFields();
 };
 
 

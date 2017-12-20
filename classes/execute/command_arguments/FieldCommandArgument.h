@@ -3,10 +3,12 @@
 
 
 #include "../base/CommandArgument.h"
+#include "../../models/Book.h"
 
 class FieldCommandArgument : public CommandArgument {
 public:
     FieldCommandArgument();
+    Book::field toBookEnumField();
 };
 
 

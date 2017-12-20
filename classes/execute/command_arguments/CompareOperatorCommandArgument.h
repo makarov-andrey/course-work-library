@@ -3,10 +3,12 @@
 
 
 #include "../base/CommandArgument.h"
+#include "../../Comparator.h"
 
 class CompareOperatorCommandArgument : public CommandArgument {
 public:
     CompareOperatorCommandArgument();
+    Comparator::operatorType toComparatorEnumOperator();
 };
 
 

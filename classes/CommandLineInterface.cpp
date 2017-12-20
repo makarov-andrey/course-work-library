@@ -39,6 +39,7 @@ void CommandLineInterface::seedBook (Book *book) {
     CommandLineInterface::seedFieldConsideringDefaultValue("Издательство", book->publisher);
     CommandLineInterface::seedFieldConsideringDefaultValue("Год издания", book->year);
     CommandLineInterface::seedFieldConsideringDefaultValue("Место хранения", book->storePlace);
+    book->formatFields();
 }
 
 void CommandLineInterface::cleanConsole(char fill) {

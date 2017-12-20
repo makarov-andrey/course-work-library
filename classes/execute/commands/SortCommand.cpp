@@ -13,7 +13,10 @@ SortCommand::SortCommand() {
 
 void SortCommand::execute() {
     std::sort(globalLibrary->books->begin(), globalLibrary->books->end(), [&](Book *first, Book *second) -> bool {
-        bool result = *first->fields[fieldArgument->value] < *second->fields[fieldArgument->value];
-        return sortDirectionArgument->value == "asc" == result;
+        Book::field field = fieldArgument->toBookEnumField();
+        Comparator::type type = Book::getComparatorType(field);
+        std::string firstValue = first->getValue(field);
+        std::string secondValue = second->getValue(field);
+        return sortDirectionArgument->value == "asc" == Comparator::compare(firstValue, secondValue, type);
     });
 }
